@@ -1,7 +1,9 @@
 // import { useEffect, useState } from "react";
-import ContextButton from "./ContextButton";
-import ContextText from "./ContextText";
-import UseReducerExample from "./use-reducer/use-reducer";
+// import ContextButton from "./ContextButton";
+// import ContextText from "./ContextText";
+// import UseReducerExample from "./use-reducer/use-reducer";
+
+import Form from "./Form";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -66,11 +68,14 @@ function App() {
         ) : (
           <h1>No users found! Please try again</h1>
         )}
-      </ul> */}
-      <ContextButton />
+      {/* <ContextButton />
       <ContextText />
-      <UseReducerExample />
+      <UseReducerExample /> 
+      </ul> */}
+
+    <Form />
     </div>
+
   );
 }
 
