@@ -3,10 +3,10 @@ import { useState } from "react";
 function Form() {
   const [inputValue, setInputValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
-  const [formdata, setFormData] = useState({
-    name: '',
-    email: '',
-  })
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+  });
   function handleInputChange(event) {
     const { value } = event.target;
     setInputValue(value);
@@ -18,12 +18,13 @@ function Form() {
   }
 
   function handleOnChange(event) {
-    console.log(event.target.name)
+    console.log(event.target.name);
 
-    const { name, value } = event.target
+    const { name, value } = event.target;
     setFormData({
-      ...formdata;
-    })
+      ...formData,
+      [name]: value,
+    });
   }
 
   function handleSumbit(e) {
@@ -32,24 +33,38 @@ function Form() {
     console.log(inputValue, emailValue, "inputValue");
   }
 
+  console.log(formData);
+
   return (
     <div>
       <form action="submit" onSubmit={handleSumbit}>
         <input
           type="text"
-          name="text"
-          id="text"
-          value={inputValue}
+          name="name"
+          id="name"
+          value={formData.name}
           placeholder="enter your name"
           onChange={handleOnChange}
+          // onChange={(event) =>
+          //   setFormData({
+          //     ...formData,
+          //     [event.target.name]: event.target.value,
+          //   })
+          // }
         />
         <input
+          value={formData.email}
           type="email"
           name="email"
           id="email"
           placeholder="Enter your email"
           onChange={handleOnChange}
-          value={emailValue}
+          // onChange={(event) =>
+          //   setFormData({
+          //     ...formData,
+          //     [event.target.name]: event.target.value,
+          //   })
+          // }
         />
         <button type="submit">Submit</button>
       </form>

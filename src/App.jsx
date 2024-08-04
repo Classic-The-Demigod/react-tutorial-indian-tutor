@@ -3,7 +3,9 @@
 // import ContextText from "./ContextText";
 // import UseReducerExample from "./use-reducer/use-reducer";
 
-import Form from "./Form";
+import LoginComponent from "./components/login";
+import RegisterComponent from "./components/register";
+// import Form from "./Form";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -73,7 +75,11 @@ function App() {
       <UseReducerExample /> 
       </ul> */}
 
-    <Form />
+      {/* <Form /> */}
+      <div style={{display: "flex", gap: "2rem", justifyContent: "center"}}>
+        <LoginComponent />
+        <RegisterComponent />
+      </div>
     </div>
 
   );
