@@ -15,6 +15,14 @@ export const loginFormElements = [
     componentType: "input",
     type: "password",
   },
+  {
+    name: "textarea",
+    id: "textarea",
+    placeholder: "Enter your description",
+    label: "textarea",
+    componentType: "textarea",
+    type: "textarea",
+  },
 ];
 export const registerFormElements = [
   {

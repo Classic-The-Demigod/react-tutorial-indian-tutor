@@ -5,9 +5,11 @@ import CommonForm from "../common-form";
 const initialFormData = {
   email: "",
   password: "",
+  textarea: "",
 };
 function LoginComponent() {
   const [loginFormData, setLoginFormData] = useState(initialFormData);
+  
 
   function onHandleSubmit(event) {
     event.preventDefault();
@@ -25,6 +27,7 @@ function LoginComponent() {
         buttonText={"Login"}
         onHandleSubmit={onHandleSubmit}
       />
+     
     </div>
   );
 }

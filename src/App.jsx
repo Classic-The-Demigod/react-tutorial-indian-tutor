@@ -2,12 +2,40 @@
 // import ContextButton from "./ContextButton";
 // import ContextText from "./ContextText";
 // import UseReducerExample from "./use-reducer/use-reducer";
+// import LoginComponent from "./components/login";
+// import RegisterComponent from "./components/register";
 
-import LoginComponent from "./components/login";
-import RegisterComponent from "./components/register";
+import { Link, useNavigate, useRoutes } from "react-router-dom";
+import CommentsList from "./routing/pages/comments/Comments";
+import RecipeList from "./routing/pages/recipes";
+import RecipeDetailsPage from "./routing/pages/recipe-details";
+import NotFoundPage from "./routing/pages/not-found";
+import Layout from "./routing/components/layouts/Layout";
+
 // import Form from "./Form";
 
+function CustomRoutes() {
+  const element = useRoutes([
+    {
+      path: "/home",
+      element: <Layout />,
+      children: [
+        { path: "recipe-list", element: <RecipeList /> },
+        { path: "comments-list", element: <CommentsList /> },
+        { path: "recipe-list/:id", element: <RecipeDetailsPage /> },
+      ],
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />,
+    },
+  ]);
+
+  return element;
+}
+
 function App() {
+  const navigate = useNavigate();
   // const [count, setCount] = useState(0);
   // const [usersList, setUsersList] = useState([]);
   // const [pending, setPending] = useState(false);
@@ -75,13 +103,46 @@ function App() {
       <UseReducerExample /> 
       </ul> */}
 
+      {/* Forms Handling */}
       {/* <Form /> */}
-      <div style={{display: "flex", gap: "2rem", justifyContent: "center"}}>
+      {/* <div style={{display: "flex", gap: "2rem", justifyContent: "center"}}>
         <LoginComponent />
         <RegisterComponent />
-      </div>
-    </div>
+      </div> */}
 
+      {/* React Router */}
+      <h1 style={{ textAlign: "center" }}>React Router DOM</h1>
+      <div>
+        <Link to={"/home/recipe-list"}>
+          Alternative way of navigating to recipe list page
+        </Link>
+        <Link to={"/home/comments-list"}>
+          Alternative way of navigating to comments list page
+        </Link>
+      </div>
+      <button
+        onClick={() => navigate("/home/recipe-list")}
+        style={{ background: "black", color: "white" }}
+      >
+        Navigate to Recipe List Page
+      </button>
+      <button
+        onClick={() => navigate("/home/comments-list")}
+        style={{ background: "black", color: "white" }}
+      >
+        Navigate to Comments List Page
+      </button>
+      {/* <Routes>
+        <Route path="/home" element={<Layout />}>
+          <Route path="recipe-list" element={<RecipeList />} />
+          <Route path="comments-list" element={<CommentsList />} />
+          <Route path="recipe-list/:id" element={<RecipeDetailsPage />} />
+        </Route>
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes> */}
+      <CustomRoutes />
+    </div>
   );
 }
 

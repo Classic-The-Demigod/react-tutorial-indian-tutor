@@ -13,9 +13,9 @@ function RegisterComponent() {
   );
 
   function handleRegisterOnSubmit(event) {
-    event.preventDefault()
-console.log(registerFormData)
-    setRegisterFormData(initialRegisterFormData)
+    event.preventDefault();
+    console.log(registerFormData);
+    setRegisterFormData(initialRegisterFormData);
   }
   return (
     <div>

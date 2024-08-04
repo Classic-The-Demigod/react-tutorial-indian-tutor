@@ -10,6 +10,7 @@ function CommonInput({ name, label, type, onChange, id, value, placeholder }) {
         value={value}
         onChange={onChange}
       />
+      
     </div>
   );
 }

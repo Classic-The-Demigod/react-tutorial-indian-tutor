@@ -5,7 +5,13 @@ const formTypes = {
   SELECT: "select",
   TEXTAREA: "textarea",
 };
-function CommonForm({ formControls = [], formData, setFormData, buttonText, onHandleSubmit }) {
+function CommonForm({
+  formControls = [],
+  formData,
+  setFormData,
+  buttonText,
+  onHandleSubmit,
+}) {
   function renderFormElement(getCurrentElement) {
     let content = null;
     switch (getCurrentElement?.componentType) {
@@ -25,6 +31,25 @@ function CommonForm({ formControls = [], formData, setFormData, buttonText, onHa
               })
             }
           />
+        );
+        break;
+
+      case formTypes.TEXTAREA:
+        content = (
+          <textarea
+            label={getCurrentElement.label}
+            name={getCurrentElement.name}
+            id={getCurrentElement.id}
+            type={getCurrentElement.type}
+            placeholder={getCurrentElement.placeholder}
+            value={formData[getCurrentElement.name]}
+            onChange={(event) =>
+              setFormData({
+                ...formData,
+                [event.target.name]: event.target.value,
+              })
+            }
+          ></textarea>
         );
         break;
 
@@ -57,10 +82,12 @@ function CommonForm({ formControls = [], formData, setFormData, buttonText, onHa
             renderFormElement(singleFormElementItem)
           )
         : null}
-      <div style={{
-        marginTop: '12px'
-      }}>
-        <button type="submit">{buttonText || 'Submit'}</button>
+      <div
+        style={{
+          marginTop: "12px",
+        }}
+      >
+        <button type="submit">{buttonText || "Submit"}</button>
       </div>
     </form>
   );
