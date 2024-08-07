@@ -11,6 +11,10 @@ import RecipeList from "./routing/pages/recipes";
 import RecipeDetailsPage from "./routing/pages/recipe-details";
 import NotFoundPage from "./routing/pages/not-found";
 import Layout from "./routing/components/layouts/Layout";
+import ReactHookForm from "./routing/pages/react-hook-form/ReactHookForm";
+import Hooks from "./hooks/Hooks";
+import MemoExample from "./hooks/MemoExample";
+import CallbackExample from "./hooks/CallbackExample";
 
 // import Form from "./Form";
 
@@ -28,6 +32,23 @@ function CustomRoutes() {
     {
       path: "*",
       element: <NotFoundPage />,
+    },
+
+    {
+      path: '/react-hook-form',
+      element: <ReactHookForm />
+    },
+    {
+      path: '/hooks',
+      element: <Hooks />
+    },
+    {
+      path: '/use-memo',
+      element: <MemoExample />
+    },
+    {
+      path: '/use-callback',
+      element: <CallbackExample />
     },
   ]);
 
@@ -69,6 +90,7 @@ function App() {
 
   return (
     <div>
+      
       {/* <h1>All Users List</h1>
       <button onClick={handleFetchListOfUsers}>fetch Users List</button> */}
       {/* <button
@@ -111,7 +133,7 @@ function App() {
       </div> */}
 
       {/* React Router */}
-      <h1 style={{ textAlign: "center" }}>React Router DOM</h1>
+      {/* <h1 style={{ textAlign: "center" }}>React Router DOM</h1>
       <div>
         <Link to={"/home/recipe-list"}>
           Alternative way of navigating to recipe list page
@@ -131,7 +153,7 @@ function App() {
         style={{ background: "black", color: "white" }}
       >
         Navigate to Comments List Page
-      </button>
+      </button> */}
       {/* <Routes>
         <Route path="/home" element={<Layout />}>
           <Route path="recipe-list" element={<RecipeList />} />
