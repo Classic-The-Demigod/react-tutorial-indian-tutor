@@ -15,6 +15,7 @@ import ReactHookForm from "./routing/pages/react-hook-form/ReactHookForm";
 import Hooks from "./hooks/Hooks";
 import MemoExample from "./hooks/MemoExample";
 import CallbackExample from "./hooks/CallbackExample";
+import ReactQueryDemo from "./react query/ReactQueryDemo";
 
 // import Form from "./Form";
 
@@ -49,6 +50,10 @@ function CustomRoutes() {
     {
       path: '/use-callback',
       element: <CallbackExample />
+    },
+    {
+      path: '/react-query-demo',
+      element: <ReactQueryDemo />
     },
   ]);
 
